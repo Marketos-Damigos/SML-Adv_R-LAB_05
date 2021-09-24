@@ -1,4 +1,19 @@
-elections <- setRefClass("election",
+#' elections RC Class
+#'
+#'@description This class downloads Swedish elections results.
+#'
+#'@field parliament. Data frame. 
+#'@field council. Data frame.
+#'@field muni. Data frame.
+#'@import methods
+#'@return Nothing.
+#'@export elections
+#'@exportClass elections
+
+
+
+
+elections <- setRefClass("elections",
                          fields = list(
                            parliament = "data.frame",
                            council = "data.frame",

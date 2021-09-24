@@ -7,3 +7,13 @@ Author: Marketos Damigos (marda352), Christoforos Spyretos (chrsp415)
 Maintainer: Marketos Damigos <marda352@student.liu.se>
 Description: Package to download Swedish election results for 2010, 2014, 2018 and preview them with r-Shiny.
 License: GPL-3
+RoxygenNote: 7.1.1
+Encoding: UTF-8
+Suggests: testthat,
+    knitr,
+    rmarkdown,
+    shiny,
+    readxl
+Imports: methods
+LazyData: true
+VignetteBuilder: knitr
