@@ -28,6 +28,8 @@ elections <- setRefClass("election",
                                  download.file(url_muni, destfile)
                                  muni <<- readxl::read_xls(destfile)
                                  
+                                 unlink("./temp_data", recursive = TRUE)
+                                 
                                }else if (el_y == "2014"){
                                  url_parl = "https://data.val.se/val/val2014/statistik/2014_riksdagsval_per_kommun.xls"
                                  url_council = "https://data.val.se/val/val2014/statistik/2014_landstingsval_per_kommun.xls"
@@ -47,6 +49,8 @@ elections <- setRefClass("election",
                                  download.file(url_muni, destfile)
                                  muni <<- readxl::read_xlsx(destfile, skip = 2)
                                  
+                                 unlink("./temp_data", recursive = TRUE)
+                                 
                                }else{
                                  url_parl = "https://data.val.se/val/val2018/statistik/2018_R_per_kommun.xlsx"
                                  url_council = "https://data.val.se/val/val2018/statistik/2018_L_per_kommun.xlsx"
@@ -65,11 +69,14 @@ elections <- setRefClass("election",
                                  destfile <- "./temp_data/muni.xlsx"
                                  download.file(url_muni, destfile)
                                  muni <<- readxl::read_xlsx(destfile, sheet = "K antal")
+                                 
+                                 unlink("./temp_data", recursive = TRUE)
                                }
                             
                              }else{
                                stop("Wrong year. Select between 2010, 2014, 2018.")
                              }
+                             
                            },
                            shiny = function(){
                              
