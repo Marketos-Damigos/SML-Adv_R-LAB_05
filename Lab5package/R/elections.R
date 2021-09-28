@@ -121,9 +121,9 @@ elections <- setRefClass("elections",
                                  mainPanel(
                                    tabsetPanel(
                                      id = 'dataset',
-                                     tabPanel("Parliament", shiny::dataTableOutput("mytable1")),
-                                     tabPanel("Council", shiny::dataTableOutput("mytable2")),
-                                     tabPanel("Municipal", shiny::dataTableOutput("mytable3"))
+                                     tabPanel("Parliament", DT::dataTableOutput("mytable1")),
+                                     tabPanel("Council", DT::dataTableOutput("mytable2")),
+                                     tabPanel("Municipal", DT::dataTableOutput("mytable3"))
                                    )
                                  )
                                )
@@ -132,18 +132,18 @@ elections <- setRefClass("elections",
                              server <- function(input, output) {
                                
                                # choose columns to display
-                               output$mytable1 <- shiny::renderDataTable({
-                                 shiny::datatable(parliament[, input$parl_vars, drop = FALSE],filter = 'top', options = list(pageLength = 50, autoWidth = TRUE, orderClasses = TRUE))
+                               output$mytable1 <- DT::renderDataTable({
+                                 DT::datatable(parliament[, input$parl_vars, drop = FALSE],filter = 'top', options = list(pageLength = 50, autoWidth = TRUE, orderClasses = TRUE))
                                })
                                
                                # sorted columns are colored now because CSS are attached to them
-                               output$mytable2 <- shiny::renderDataTable({
-                                 shiny::datatable(council[, input$council_vars, drop = FALSE], filter = 'top', options = list(pageLength = 50, autoWidth = TRUE, orderClasses = TRUE))
+                               output$mytable2 <- DT::renderDataTable({
+                                 DT::datatable(council[, input$council_vars, drop = FALSE], filter = 'top', options = list(pageLength = 50, autoWidth = TRUE, orderClasses = TRUE))
                                })
                                
                                # customize the length drop-down menu; display 5 rows per page by default
-                               output$mytable3 <- shiny::renderDataTable({
-                                 shiny::datatable(muni[, input$mouni_vars, drop = FALSE], filter = 'top', options = list(pageLength = 50, autoWidth = TRUE, orderClasses = TRUE))
+                               output$mytable3 <- DT::renderDataTable({
+                                 DT::datatable(muni[, input$mouni_vars, drop = FALSE], filter = 'top', options = list(pageLength = 50, autoWidth = TRUE, orderClasses = TRUE))
                                })
                                
                              }
