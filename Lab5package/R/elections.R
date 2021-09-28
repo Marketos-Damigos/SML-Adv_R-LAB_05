@@ -55,15 +55,15 @@ elections <- setRefClass("elections",
                                  dir.create("./temp_data")
                                  
                                  destfile <- "./temp_data/parliament.xls"
-                                 download.file(url_parl, destfile)
+                                 download.file(url_parl, destfile, method="libcurl", mode = "wb")
                                  parliament <<- readxl::read_xls(destfile, skip = 2)
                                  
                                  destfile <- "./temp_data/council.xls"
-                                 download.file(url_council, destfile)
+                                 download.file(url_council, destfile, method="libcurl", mode = "wb")
                                  council <<- readxl::read_xls(destfile, skip = 2)
                                  
                                  destfile <- "./temp_data/muni.xlsx"
-                                 download.file(url_muni, destfile)
+                                 download.file(url_muni, destfile, method="libcurl", mode = "wb")
                                  muni <<- readxl::read_xlsx(destfile, skip = 2)
                                  
                                  unlink("./temp_data", recursive = TRUE)
