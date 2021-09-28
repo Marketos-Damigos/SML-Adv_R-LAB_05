@@ -3,3 +3,5 @@
 export(elections)
 exportClasses(elections)
 import(methods)
+import(readxl)
+import(shiny)
