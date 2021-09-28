@@ -9,11 +9,11 @@ Description: Package to download Swedish election results for 2010, 2014, 2018 a
 License: GPL-3
 RoxygenNote: 7.1.1
 Encoding: UTF-8
-Suggests: testthat,
+Imports: testthat,
     knitr,
     rmarkdown,
     shiny,
-    readxl
-Imports: methods
+    readxl,
+    methods
 LazyData: true
 VignetteBuilder: knitr
