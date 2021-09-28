@@ -1,0 +1,61 @@
+---
+title: "Lab5Package"
+authors: Marketos Damigos (marda352) & Christoforos Spyretos (chrsp415)
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+vignette: >
+  %\VignetteIndexEntry{Lab5Package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  echo = TRUE
+)
+```
+
+```{r, include = FALSE}
+library(shiny)
+library(readxl)
+library(Lab5package)
+```
+
+##  Introduction
+
+Downloading Swedish elections data for years 2010, 2014 and 2018, and preview with shiny dashboard using RC-class by Marketos Damigos (marda352) and Christoforos Spyretos (chrsp415).
+
+##  Usage Methods
+
+```{r echo=TRUE, fig.show='hold'}
+el_2010 = elections("2010")
+el_2014 = elections("2014")
+el_2018 = elections("2018")
+```
+## Data Fields 
+
+The available data fields of municipal, parliament and council Swedish elections. 
+
+```{r}
+head(el_2010$muni)
+```
+
+```{r}
+head(el_2010$parliament)
+```
+
+```{r}
+head(el_2010$council)
+```
+
+## Shiny App
+
+Preview shiny dasdoard of the 2014 Swedish elections.
+
+```{r}
+el_2014$shiny()
+```
+
